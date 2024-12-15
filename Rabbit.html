@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rabbit Tasks</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Notification bar */
+        .notification-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #28a745;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 16px;
+            font-weight: bold;
+            display: none;
+            z-index: 9999;
+        }
+
+        /* Balance container */
+        .balance-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 60px;
+            font-size: 24px;
+            font-weight: bold;
+            gap: 10px;
+        }
+
+        .icon img {
+            width: 42px;
+            height: 42px;
+        }
+
+        /* Task container */
+        .tg {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 20px auto;
+            width: 85%;
+            background-color: #ffffff;
+            border: 2px solid #ccc;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* Buttons */
+        .start-btn, .claim-btn {
+            height: 40px;
+            width: 80px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .claim-btn {
+            display: none;
+            background-color: #28a745;
+        }
+
+        .claim-btn:hover {
+            background-color: #218838;
+        }
+
+        /* Tabs */
+        .tabs {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .tab a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .tab img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .tab span {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Notification Bar -->
+    <div class="notification-bar" id="notification-bar">
+        5000 tokens added to your balance!
+    </div>
+
+    <!-- Balance Display -->
+    <div class="balance-container">
+        <div class="icon">
+            <img src="https://lh3.googleusercontent.com/pw/AP1GczNn3-1upt8zameOFBUrMYKcGnWKcXInaaCnHkQKmk4elZFigWDM4Pi79QvCe97siYBn9bpztp1U171MhgRIPjqv3TzsQrxg229HN2s5bUfTvexv2K1QLbrsCeMiKmDnIkcqHmZGM98vJIC986NzhCrx=w721-h721-s-no-gm?authuser=0" alt="Coin">
+        </div>
+        <div id="balance-display">0</div>
+    </div>
+
+    <!-- Task 1: Join the community (Telegram) -->
+    <div class="tg">
+        <div>
+            <p>Join the community</p>
+            <p class="reward" data-task="telegram">+5000</p>
+        </div>
+        <button class="start-btn" onclick="openTask(this, 'telegram')">Start</button>
+        <button class="claim-btn" onclick="claimReward(this, 'telegram')">Claim</button>
+    </div>
+
+    <!-- Task 2: Follow us on X (Twitter) -->
+    <div class="tg">
+        <div>
+            <p>Follow us on X</p>
+            <p class="reward" data-task="twitter">+5000</p>
+        </div>
+        <button class="start-btn" onclick="openTask(this, 'twitter')">Start</button>
+        <button class="claim-btn" onclick="claimReward(this, 'twitter')">Claim</button>
+    </div>
+
+    <!-- Task 3: Follow us on Instagram -->
+    <div class="tg">
+        <div>
+            <p>Follow us on Instagram</p>
+            <p class="reward" data-task="instagram">+5000</p>
+        </div>
+        <button class="start-btn" onclick="openTask(this, 'instagram')">Start</button>
+        <button class="claim-btn" onclick="claimReward(this, 'instagram')">Claim</button>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <div class="tab home-tab">
+            <a href="/Rabbit.html">
+                <img src="https://cf.seeddao.org/images/navbar-v2/home-active.png" alt="Home Icon">
+                <span>Home</span>
+            </a>
+        </div>
+        <div class="tab leaderboard-tab">
+            <a href="/leaderboard.html">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczOK6eZYTOjNqalubW3zHWZxPqB_AfaUk9O8Xl6nc41yPHaH3quXrP7o_Sp-MgpsjEyah14nxiEX-avOzEZQ4e8cv55E9M84vR5v7dPUiVfWAoKKw_oYpjqF8zDsq_2ko0q14t2pvusTIqGbFqUsGL0-=w225-h225-s-no-gm?authuser=0" alt="Leaderboard Icon">
+                <span>Top</span>
+            </a>
+        </div>
+        <div class="tab tasks-tab">
+            <a href="/tasks.html">
+                <img src="https://cf.seeddao.org/images/navbar-v2/earn-unactive.png" alt="Tasks Icon">
+                <span>Task</span>
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let balance = parseInt(localStorage.getItem('balance')) || 0;
+        document.getElementById("balance-display").innerText = balance;
+
+        function openTask(button, task) {
+            if (task === 'telegram') {
+                window.open("https://t.me/zapdashcommunity", "_blank");
+            } else if (task === 'twitter') {
+                window.open("https://twitter.com", "_blank");
+            } else if (task === 'instagram') {
+                window.open("https://www.instagram.com/zapdashcommunity/profilecard/?igsh=enU2NDQwZGs1Ym1w", "_blank");
+            }
+            button.style.display = 'none';
+
+            // Wait for 10 seconds before showing the "Claim" button
+            setTimeout(function() {
+                button.nextElementSibling.style.display = 'inline-block';
+            }, 10000);
+        }
+
+        function claimReward(button, task) {
+            if (localStorage.getItem(`${task}-claimed`) === 'true') return;
+
+            balance += 5000;
+            localStorage.setItem('balance', balance);
+            document.getElementById("balance-display").innerText = balance;
+
+            localStorage.setItem(`${task}-claimed`, 'true');
+            button.style.display = 'none';
+            button.parentElement.querySelector('.reward').style.display = 'none';
+            showNotification("5000 tokens added to your balance!");
+        }
+
+        function showNotification(message) {
+            const notificationBar = document.getElementById("notification-bar");
+            notificationBar.innerText = message;
+            notificationBar.style.display = "block";
+            setTimeout(() => {
+                notificationBar.style.display = "none";
+            }, 3000);
+        }
+
+        function loadButtonStates() {
+            ['telegram', 'twitter', 'instagram'].forEach(task => {
+                const claimed = localStorage.getItem(`${task}-claimed`);
+                const startBtn = document.querySelector(`.start-btn[onclick*="${task}"]`);
+                const claimBtn = startBtn.nextElementSibling;
+                const rewardText = startBtn.parentElement.querySelector('.reward');
+
+                if (claimed === 'true') {
+                    rewardText.style.display = 'none';
+                    claimBtn.style.display = 'none';
+                }
+            });
+        }
+
+        loadButtonStates();
+    </script>
+</body>
+</html>

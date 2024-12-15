@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./style.css" />
+    <title>Leaderboard</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+        }
+
+        /* Tabs styling */
+        .tabs {
+            display: flex;
+            justify-content: space-around;
+            background-color: #f8f9fa;
+            padding: 10px 0;
+            border-top: 1px solid #ccc;
+        }
+
+        .tab a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: black;
+        }
+
+        .tab img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .tab span {
+            font-size: 14px;
+        }
+
+        /* Player Icon - Left and right alignment */
+        .player-icon {
+            display: flex;
+            justify-content: space-between; /* Space between name/points and emoji */
+            margin-top: 50px;
+            padding: 0 20px; /* Adjust for spacing from left and right */
+        }
+
+        .player-icon-1 {
+            display: flex;
+            flex-direction: row;
+            font-size: 18px;
+            font-weight: bold;
+            align-items: flex-start; /* Align name and points vertically */
+        }
+
+        .player-icon-1 .emoji {
+            margin-left: 20px; /* Push the emoji to the right side */
+            font-size: 24px; /* Adjust emoji size */
+        }
+
+        /* Name and points styling */
+        .player-icon-1 .name {
+            margin-right: 10px; /* Space between name and emoji */
+            margin-bottom: 5px; /* Space between name and points */
+        }
+
+        .player-icon-1 .points {
+            font-size: 16px;
+            margin-top: 0.5cm; /* Adjust to 1 cm below */
+        }
+    </style>
+</head>
+<body>
+    <div class="tabs">
+        <div class="tab home-tab">
+            <a href="/Rabbit.html">
+                <img src="https://cf.seeddao.org/images/navbar-v2/home-unactive.png" alt="Home Icon">
+                <span>Home</span>
+            </a>
+        </div>
+        <div class="tab leaderboard-tab">
+            <a href="/leaderboard.html">
+                <img src="https://lh3.googleusercontent.com/pw/AP1GczMFAH5q_AchKTJSV6p3aMYwdAhPJc_i7T-Q-Snk_gMXE_YW_sHP4nLB6ufXTHEA1aaOyzFPFiBb2oqtOHQ1figpA_qZN_a9Stbw4oBnRi57elTkY8pzm45xWdp_VIp4SC7LAidfmQSmS8nbpjY9sWXm=w721-h721-s-no-gm?authuser=0" alt="Leaderboard Icon">
+                <span>Top</span>
+            </a>
+        </div>
+        <div class="tab tasks-tab">
+            <a href="/tasks.html">
+                <img src="https://cf.seeddao.org/images/navbar-v2/earn-unactive.png" alt="Tasks Icon">
+                <span>Task</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Player Icon and Points -->
+    <div class="player-icon">
+        <div class="player-icon-1">
+            <div class="name">Ayub 🌱SEED..</div>
+            <div class="points">18.5M</div>
+            <div class="emoji">🥇</div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

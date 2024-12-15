@@ -1,0 +1,68 @@
+/* Tabs container */
+.tabs {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+    border-top: 1px solid #ccc;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+/* Individual tab styling */
+.tab a {
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    align-items: center;    /* Center-align items */
+    text-decoration: none;
+    color: black;
+}
+
+/* Image sizing for the icons */
+.tab img {
+    width: 32px;
+    height: 32px;
+     /* Space between the image and text */
+}
+
+/* Text styling inside tabs */
+.tab span {
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Hover effect for text */
+.tab a:hover {
+    color: blue;
+}
+.icon img{
+    height: 32px;
+    width: 32px;
+    
+}
+.start-btn{
+    height:40px;
+    width: 80px;
+    font-size: 20px;
+    font-weight: bold;
+    color: 000000;
+    text-decoration: none;
+    background-color: #ffffff;
+}
+.1 {
+     height: 40px;
+            width: 80px;
+            font-size: 14px;
+            font-weight: bold;
+            color: #ffffff;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+}
